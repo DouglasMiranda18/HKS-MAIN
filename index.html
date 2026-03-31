@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HKS Esports | Site Institucional</title>
-  <meta name="description" content="Site institucional premium da HKS Esports com lineup, campeonatos, patrocinadores, comunidade, recrutamento e contato." />
+  <meta name="description" content="HKS Esports — Organização profissional de esports com lineup competitivo, resultados expressivos e presença forte no cenário gamer brasileiro." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Orbitron:wght@500;700;800;900&display=swap" rel="stylesheet">
@@ -109,7 +109,7 @@
       padding: 14px 24px;
       border-radius: 999px;
       border: 1px solid transparent;
-      transition: 0.28s ease;
+      transition: all 0.2s ease;
       font-weight: 800;
     }
     .btn-primary {
@@ -125,7 +125,6 @@
       background: rgba(255,255,255,0.03);
       border-color: rgba(255,255,255,0.1);
       color: var(--white);
-      backdrop-filter: blur(8px);
     }
     .btn-secondary:hover {
       border-color: rgba(255,106,0,0.4);
@@ -138,7 +137,6 @@
       background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      backdrop-filter: blur(10px);
       box-shadow: var(--shadow);
     }
 
@@ -163,16 +161,23 @@
       gap: 14px;
     }
     .brand-logo {
-      width: 56px;
-      height: 56px;
+      width: 64px;
+      height: 64px;
       border-radius: 18px;
-      background: linear-gradient(135deg, #ff8c32 0%, #ff6a00 45%, #cc4e00 100%);
-      display: grid;
-      place-items: center;
-      font-family: "Orbitron", sans-serif;
-      font-size: 0.9rem;
-      font-weight: 900;
-      box-shadow: 0 14px 28px rgba(255,106,0,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: transparent;
+      box-shadow: 0 14px 28px rgba(255,106,0,0.16);
+    }
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      border-radius: 18px;
     }
     .brand-text strong {
       display: block;
@@ -269,6 +274,10 @@
       text-transform: uppercase;
       margin-bottom: 18px;
       max-width: 760px;
+      background: linear-gradient(135deg, #ffffff 0%, #ffd6bf 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     .hero-copy h1 span { color: var(--orange); }
     .hero-copy p {
@@ -1048,8 +1057,9 @@
 
     .reveal {
       opacity: 0;
-      transform: translateY(26px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      will-change: opacity, transform;
     }
     .reveal.visible {
       opacity: 1;
@@ -1116,7 +1126,7 @@
   <header class="topbar">
     <div class="container navbar">
       <a href="#inicio" class="brand">
-        <div class="brand-logo">HKS</div>
+        <div class="brand-logo"><img src="logo.png" alt="Logo HKS Esports"></div>
         <div class="brand-text">
           <strong>HKS ESPORTS</strong>
           <span>Competitivo • Geek • Profissional</span>
@@ -1203,9 +1213,9 @@
             <div class="hero-poster">
               <div class="poster-image"></div>
               <div class="poster-overlay">
-                <small>Hero com imagem real do time</small>
-                <h3>Substitua essa montagem pelas fotos oficiais da HKS</h3>
-                <p>Aqui é o lugar ideal para uma foto ou arte principal dos jogadores. Isso muda completamente a sensação de template.</p>
+                <small>FORÇA COMPETITIVA</small>
+                <h3>Dominando o cenário com estratégia e precisão</h3>
+                <p>A HKS Esports representa excelência no competitivo, combinando talento, disciplina e visão estratégica para alcançar o topo.</p>
               </div>
             </div>
           </div>
@@ -1301,9 +1311,9 @@
       <div class="container">
         <div class="lineup-header reveal">
           <div>
-            <div class="eyebrow">Jogadores e staff</div>
-            <h2 class="section-title">Agora com estrutura para fotos reais e menos cara de template</h2>
-            <p class="section-subtitle">Em vez de uma grade cheia de cards iguais, o lineup ganhou um destaque principal e uma lista lateral mais elegante.</p>
+            <div class="eyebrow">Elenco profissional</div>
+            <h2 class="section-title">Conheça os atletas que representam a HKS no competitivo</h2>
+            <p class="section-subtitle">Uma equipe formada por talento, experiência e dedicação, pronta para competir nos mais altos níveis do cenário gamer.</p>
           </div>
           <div class="filters" id="filters">
             <button class="filter-btn active" data-filter="all">Todos</button>
@@ -1317,9 +1327,9 @@
           <article class="featured-player reveal" data-category="titular">
             <div class="featured-bg"></div>
             <div class="featured-content">
-              <small>Destaque principal • foto real do capitão</small>
+              <small>CAPITÃO • LIDERANÇA ESTRATÉGICA</small>
               <h3>HKS Nexus</h3>
-              <p>Capitão da HKS e referência estratégica do elenco. Esta área foi feita para receber uma foto real impactante e dar mais personalidade ao site.</p>
+              <p>Referência tática da equipe, com experiência consolidada em campeonatos de alto nível e visão estratégica que guia a HKS às vitórias.</p>
               <div class="featured-metrics">
                 <div><strong>19</strong><span>Mapas vencidos</span></div>
                 <div><strong>84%</strong><span>Calls certas</span></div>
@@ -1453,15 +1463,15 @@
       <div class="display-word">partners</div>
       <div class="container">
         <div class="section-header reveal">
-          <div class="eyebrow">Página comercial</div>
-          <h2 class="section-title">Menos grade genérica, mais cara de mídia kit</h2>
-          <p class="section-subtitle">A área de patrocinadores agora parece uma apresentação comercial e não só uma seção com logos jogadas.</p>
+          <div class="eyebrow">Parcerias estratégicas</div>
+          <h2 class="section-title">Marcas que acreditam no potencial da HKS</h2>
+          <p class="section-subtitle">Empresas visionárias que apoiam nossa jornada no competitivo, construindo juntos um ecossistema gamer de excelência.</p>
         </div>
 
         <div class="sponsor-hero reveal">
           <div class="sponsor-intro">
-            <h3 style="font-family: Orbitron, sans-serif; font-size: 1.8rem; line-height: 0.98; margin-bottom: 10px; text-transform: uppercase;">A HKS conecta marcas ao público gamer</h3>
-            <p>Use essa área para colocar texto comercial real, proposta de valor, links de apresentação e até um PDF de mídia kit no futuro.</p>
+            <h3 style="font-family: Orbitron, sans-serif; font-size: 1.8rem; line-height: 0.98; margin-bottom: 10px; text-transform: uppercase;">Conectando marcas ao universo gamer premium</h3>
+            <p>A HKS oferece exposição estratégica em um público jovem, engajado e com alto poder de consumo, através de ativações integradas e presença digital consistente.</p>
             <div class="sponsor-metrics">
               <div><strong>60K</strong><span>Alcance total</span></div>
               <div><strong>8.2%</strong><span>Engajamento médio</span></div>
@@ -1492,8 +1502,8 @@
       <div class="container">
         <div class="section-header reveal">
           <div class="eyebrow">Ecossistema HKS</div>
-          <h2 class="section-title">A comunidade não fica mais escondida em botões pequenos</h2>
-          <p class="section-subtitle">Cada canal ganhou protagonismo para ajudar na conversão de visitantes em seguidores e membros ativos.</p>
+          <h2 class="section-title">Conecte-se com nossa comunidade</h2>
+          <p class="section-subtitle">Plataformas onde a HKS interage com fãs, parceiros e a cena competitiva, mantendo uma presença ativa e engajada.</p>
         </div>
 
         <div class="community-grid">
@@ -1504,13 +1514,13 @@
         </div>
 
         <div class="community-agenda reveal">
-          <h3 style="font-family: Orbitron, sans-serif; font-size: 1.3rem; margin-bottom: 8px; text-transform: uppercase;">Agenda da semana</h3>
-          <p style="color: var(--soft);">Essa parte ajuda a dar vida ao site. Troque por treinos reais, lives, campeonatos ou ativações da HKS.</p>
+          <h3 style="font-family: Orbitron, sans-serif; font-size: 1.3rem; margin-bottom: 8px; text-transform: uppercase;">Agenda semanal</h3>
+          <p style="color: var(--soft);">Acompanhe nossa rotina de treinamentos, transmissões ao vivo e eventos especiais da semana.</p>
           <div class="agenda-grid">
             <div class="agenda-item"><strong>Segunda</strong><span>Treino tático • 20h</span></div>
-            <div class="agenda-item"><strong>Quarta</strong><span>Scrim aberta • 21h</span></div>
-            <div class="agenda-item"><strong>Sexta</strong><span>Live da line • 20h30</span></div>
-            <div class="agenda-item"><strong>Sábado</strong><span>Campeonato / evento especial</span></div>
+            <div class="agenda-item"><strong>Quarta</strong><span>Scrim competitiva • 21h</span></div>
+            <div class="agenda-item"><strong>Sexta</strong><span>Live da equipe • 20h30</span></div>
+            <div class="agenda-item"><strong>Sábado</strong><span>Campeonato oficial</span></div>
           </div>
         </div>
       </div>
@@ -1520,9 +1530,9 @@
       <div class="display-word">join</div>
       <div class="container recruit-layout">
         <div class="text-panel reveal">
-          <div class="eyebrow">Recrutamento</div>
-          <h2 class="section-title" style="font-size: clamp(1.8rem, 3vw, 2.8rem);">Uma área feita para receber talento de verdade</h2>
-          <p style="color: var(--soft);">O texto ao lado prepara o candidato e ajuda a qualificar quem envia o formulário.</p>
+          <div class="eyebrow">Junte-se à equipe</div>
+          <h2 class="section-title" style="font-size: clamp(1.8rem, 3vw, 2.8rem);">Buscamos atletas com potencial para o alto nível</h2>
+          <p style="color: var(--soft);">Se você tem talento, dedicação e vontade de competir profissionalmente, a HKS pode ser o próximo capítulo da sua carreira no esports.</p>
 
           <div class="requirements">
             <div class="requirement"><div class="requirement-dot">1</div><div><h4>Compromisso</h4><p>Responsabilidade, constância e vontade de evoluir.</p></div></div>
@@ -1533,9 +1543,9 @@
         </div>
 
         <div class="form-panel reveal">
-          <div class="eyebrow">Formulário real</div>
-          <h3 style="font-family: Orbitron, sans-serif; font-size: 1.4rem; text-transform: uppercase; line-height: 1; margin-bottom: 8px;">Envio pronto para FormSubmit</h3>
-          <p style="color: var(--soft); margin-bottom: 18px;">Troque o e-mail abaixo pelo seu e o formulário já enviará de verdade sem backend.</p>
+          <div class="eyebrow">Candidatura profissional</div>
+          <h3 style="font-family: Orbitron, sans-serif; font-size: 1.4rem; text-transform: uppercase; line-height: 1; margin-bottom: 8px;">Envie sua proposta</h3>
+          <p style="color: var(--soft); margin-bottom: 18px;">Preencha o formulário abaixo com suas informações e experiência competitiva.</p>
 
           <form id="playerForm" action="https://formsubmit.co/SEUEMAIL@EXEMPLO.COM" method="POST">
             <input type="hidden" name="_subject" value="Nova candidatura HKS Esports">
@@ -1560,9 +1570,9 @@
       <div class="display-word">contact</div>
       <div class="container contact-layout">
         <div class="text-panel reveal">
-          <div class="eyebrow">Contato oficial</div>
-          <h2 class="section-title" style="font-size: clamp(1.8rem, 3vw, 2.8rem);">Uma página final de conversão com aparência mais profissional</h2>
-          <p style="color: var(--soft);">Aqui o visitante encontra os meios principais de contato e um formulário pronto para envio real.</p>
+          <div class="eyebrow">Entre em contato</div>
+          <h2 class="section-title" style="font-size: clamp(1.8rem, 3vw, 2.8rem);">Vamos conversar sobre oportunidades</h2>
+          <p style="color: var(--soft);">Seja para parcerias comerciais, recrutamento ou apenas para conhecer melhor a HKS, estamos à disposição.</p>
 
           <div class="contact-cards">
             <div class="contact-item"><div class="contact-icon">✉</div><div><h4>E-mail comercial</h4><a href="mailto:contato@hksesports.com">contato@hksesports.com</a></div></div>
@@ -1573,8 +1583,8 @@
 
         <div class="form-panel reveal">
           <div class="eyebrow">Mensagem direta</div>
-          <h3 style="font-family: Orbitron, sans-serif; font-size: 1.4rem; text-transform: uppercase; line-height: 1; margin-bottom: 8px;">Formulário de contato real</h3>
-          <p style="color: var(--soft); margin-bottom: 18px;">Também configurado com FormSubmit. Basta trocar o e-mail do action.</p>
+          <h3 style="font-family: Orbitron, sans-serif; font-size: 1.4rem; text-transform: uppercase; line-height: 1; margin-bottom: 8px;">Fale conosco</h3>
+          <p style="color: var(--soft); margin-bottom: 18px;">Envie sua mensagem e retornaremos o contato o mais breve possível.</p>
 
           <form id="contactForm" action="https://formsubmit.co/SEUEMAIL@EXEMPLO.COM" method="POST">
             <input type="hidden" name="_subject" value="Novo contato HKS Esports">
@@ -1599,12 +1609,12 @@
       <div class="container">
         <div class="cta-panel reveal">
           <div>
-            <h3>Agora sim com base para um site mais humano e premium</h3>
-            <p>O próximo salto de qualidade vem quando você trocar as imagens provisórias pelas fotos reais dos jogadores, a logo oficial da HKS e os links verdadeiros das redes.</p>
+            <h3>Junte-se à revolução competitiva da HKS Esports</h3>
+            <p>Seja parte de uma organização que combina excelência técnica, cultura geek e visão estratégica para dominar o cenário esports brasileiro.</p>
           </div>
           <div class="cta-actions">
-            <a href="#lineup" class="btn btn-primary">Atualizar lineup</a>
-            <a href="#contato" class="btn btn-secondary">Configurar contato</a>
+            <a href="#lineup" class="btn btn-primary">Conheça o elenco</a>
+            <a href="#contato" class="btn btn-secondary">Entre em contato</a>
           </div>
         </div>
       </div>
@@ -1612,30 +1622,36 @@
   </main>
 
   <footer>
-    <div class="container footer-grid">
-      <div class="footer-copy">
-        <div class="brand">
-          <div class="brand-logo">HKS</div>
-          <div class="brand-text">
-            <strong>HKS ESPORTS</strong>
-            <span>Institucional gamer premium</span>
+    <div class="container" style="display:grid; gap: 24px;">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap;">
+        <div class="footer-copy" style="max-width: 520px;">
+          <div class="brand">
+            <div class="brand-logo"><img src="logo.png" alt="Logo HKS Esports"></div>
+            <div class="brand-text">
+              <strong>HKS ESPORTS</strong>
+              <span>Institucional gamer premium</span>
+            </div>
           </div>
+          <p style="margin-top: 14px;">HKS Esports — onde talento, estratégia e paixão pelo competitivo se encontram para criar uma organização de referência no cenário gamer brasileiro.</p>
         </div>
-        <p>Layout redesenhado para parecer menos automático e mais marca real. Agora o ideal é substituir as imagens provisórias, dados fictícios e e-mails placeholder.</p>
+
+        <nav class="footer-links" style="justify-content:flex-start; max-width: 460px; row-gap: 12px;">
+          <a href="#inicio">Início</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#lineup">Lineup</a>
+          <a href="#campeonatos">Campeonatos</a>
+          <a href="#patrocinadores">Patrocinadores</a>
+          <a href="#comunidade">Comunidade</a>
+          <a href="#contato">Contato</a>
+        </nav>
       </div>
-      <div class="footer-links">
-        <a href="#inicio">Início</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#lineup">Lineup</a>
-        <a href="#campeonatos">Campeonatos</a>
-        <a href="#patrocinadores">Patrocinadores</a>
-        <a href="#comunidade">Comunidade</a>
-        <a href="#contato">Contato</a>
+
+      <div style="padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.06); display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; color: var(--muted); font-size: 0.92rem;">
+        <span>© 2026 HKS Esports. Todos os direitos reservados.</span>
+        <a href="https://agenciaelevare.netlify.app/" target="_blank" rel="noopener noreferrer" style="color: var(--soft); font-weight: 700; transition: 0.22s ease; white-space: nowrap;">Desenvolvido por Agência Elevare</a>
       </div>
     </div>
-    <div class="container" style="margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.06); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; color: var(--muted); font-size: 0.92rem;">
-      <span>© 2026 HKS Esports. Todos os direitos reservados.</span>
-      <a href="https://agenciaelevare.netlify.app/" target="_blank" rel="noopener noreferrer" style="color: var(--soft); font-weight: 700; transition: 0.22s ease;">Desenvolvido p
+  
 
   <script>
     const menuToggle = document.getElementById('menuToggle');
@@ -1709,7 +1725,7 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
 
     revealElements.forEach(el => revealObserver.observe(el));
   </script>
