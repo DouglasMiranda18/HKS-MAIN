@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HKS Esports | Site Institucional</title>
+  <meta name="description" content="Site institucional premium da HKS Esports com lineup, campeonatos, patrocinadores, comunidade, recrutamento e contato." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Orbitron:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #FF6A00;
+      --orange-2: #FF8C32;
+      --black: #0B0B0F;
+      --black-2: #111117;
+      --panel: rgba(255,255,255,0.04);
+      --panel-2: rgba(255,255,255,0.025);
+      --white: #FFFFFF;
+      --soft: #B9B9C4;
+      --muted: #8C8C98;
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 24px 60px rgba(0,0,0,0.33);
+      --radius-xl: 36px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --max-width: 1240px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Montserrat", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,106,0,0.09), transparent 24%),
+        radial-gradient(circle at 85% 12%, rgba(255,106,0,0.06), transparent 18%),
+        linear-gradient(180deg, #0B0B0F 0%, #111117 52%, #0B0B0F 100%);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body.menu-open { overflow: hidden; }
+    a { text-decoration: none; color: inherit; }
+    button, input, textarea, select { font: inherit; }
+    button { cursor: pointer; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .section { padding: 110px 0; position: relative; }
+    .section-header { margin-bottom: 34px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      font-weight: 800;
+      color: #ffd6bf;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(255,106,0,0.1), rgba(255,106,0,0.9));
+    }
+    .section-title {
+      font-family: "Orbitron", sans-serif;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.02;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      max-width: 760px;
+    }
+    .section-subtitle {
+      color: var(--soft);
+      max-width: 760px;
+      font-size: 1rem;
+    }
+
+    .display-word {
+      position: absolute;
+      top: 18px;
+      right: 0;
+      font-family: "Orbitron", sans-serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 13vw, 10rem);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.03);
+      pointer-events: none;
+      user-select: none;
+      line-height: 0.85;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: 0.28s ease;
+      font-weight: 800;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--orange), var(--orange-2));
+      color: var(--white);
+      box-shadow: 0 14px 34px rgba(255,106,0,0.28);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 38px rgba(255,106,0,0.34);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(255,255,255,0.1);
+      color: var(--white);
+      backdrop-filter: blur(8px);
+    }
+    .btn-secondary:hover {
+      border-color: rgba(255,106,0,0.4);
+      color: var(--orange);
+      transform: translateY(-2px);
+    }
+    .btn-full { width: 100%; }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(11,11,15,0.72);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .navbar {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #ff8c32 0%, #ff6a00 45%, #cc4e00 100%);
+      display: grid;
+      place-items: center;
+      font-family: "Orbitron", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 900;
+      box-shadow: 0 14px 28px rgba(255,106,0,0.25);
+    }
+    .brand-text strong {
+      display: block;
+      font-family: "Orbitron", sans-serif;
+      letter-spacing: 1px;
+      font-size: 1rem;
+    }
+    .brand-text span {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .nav-links a {
+      color: #e6e6eb;
+      font-weight: 600;
+      position: relative;
+      transition: 0.2s ease;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--orange), transparent);
+      transition: 0.22s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--orange); }
+    .nav-links a:hover::after,
+    .nav-links a.active::after { width: 100%; }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .menu-toggle {
+      display: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      color: white;
+      font-size: 1.2rem;
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 90px;
+      left: 16px;
+      right: 16px;
+      z-index: 999;
+      border-radius: 24px;
+      padding: 18px;
+      background: rgba(18,18,24,0.98);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu nav { display: grid; gap: 8px; }
+    .mobile-menu a {
+      display: block;
+      padding: 14px 12px;
+      border-radius: 14px;
+      font-weight: 700;
+    }
+    .mobile-menu a:hover { background: rgba(255,255,255,0.04); color: var(--orange); }
+    .mobile-menu .btn { width: 100%; margin-top: 12px; }
+
+    .hero {
+      padding: 70px 0 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 34px;
+      align-items: center;
+    }
+    .hero-copy h1 {
+      font-family: "Orbitron", sans-serif;
+      font-size: clamp(3rem, 6vw, 6rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      max-width: 760px;
+    }
+    .hero-copy h1 span { color: var(--orange); }
+    .hero-copy p {
+      max-width: 620px;
+      color: var(--soft);
+      font-size: 1.08rem;
+      margin-bottom: 26px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+    .hero-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 760px;
+    }
+    .strip-item {
+      padding: 18px 18px 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .strip-item strong {
+      display: block;
+      font-size: 1.16rem;
+      margin-bottom: 4px;
+    }
+    .strip-item span { color: var(--soft); font-size: 0.92rem; }
+
+    .hero-stage {
+      position: relative;
+      min-height: 620px;
+      border-radius: 38px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top right, rgba(255,106,0,0.22), transparent 28%),
+        linear-gradient(160deg, #17171d 0%, #0f0f14 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.4);
+    }
+    .hero-stage::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.04), transparent 35%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.045)' stroke-width='1'%3E%3Cpath d='M0 20h140M0 70h140M0 120h140M20 0v140M70 0v140M120 0v140'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-stage-inner {
+      position: relative;
+      height: 100%;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .hero-side {
+      display: grid;
+      gap: 14px;
+      align-content: space-between;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.82rem;
+      font-weight: 800;
+      width: fit-content;
+    }
+    .score-panel {
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .score-panel h3 {
+      font-family: "Orbitron", sans-serif;
+      font-size: 0.98rem;
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #ffe2cf;
+    }
+    .score-list {
+      display: grid;
+      gap: 10px;
+    }
+    .score-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .score-row:last-child { border-bottom: none; }
+    .score-row span { color: var(--soft); font-size: 0.92rem; }
+    .score-row strong { color: var(--orange); }
+
+    .hero-poster {
+      position: relative;
+      min-height: 100%;
+      border-radius: 28px;
+      overflow: hidden;
+      background:
+        linear-gradient(to top, rgba(11,11,15,0.85), rgba(11,11,15,0.08) 44%),
+        radial-gradient(circle at center, rgba(255,106,0,0.18), transparent 45%),
+        linear-gradient(135deg, #272730, #121218);
+    }
+    .poster-image {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to top, rgba(0,0,0,0.84), rgba(0,0,0,0.08) 55%),
+        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.8;
+    }
+    .poster-overlay {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px;
+    }
+    .poster-overlay small {
+      color: #ffcfb1;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .poster-overlay h3 {
+      font-family: "Orbitron", sans-serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      text-transform: uppercase;
+      line-height: 0.95;
+      margin-bottom: 10px;
+      max-width: 420px;
+    }
+    .poster-overlay p {
+      color: var(--soft);
+      max-width: 400px;
+    }
+
+    .stats-band {
+      padding-top: 30px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .stat-block {
+      padding: 26px 22px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .stat-block strong {
+      display: block;
+      font-family: "Orbitron", sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--orange);
+      margin-bottom: 6px;
+    }
+    .stat-block span { color: var(--soft); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .about-copy p { color: var(--soft); margin-bottom: 18px; }
+    .feature-list { display: grid; gap: 18px; margin-top: 28px; }
+    .feature-item {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .feature-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,106,0,0.12);
+      border: 1px solid rgba(255,106,0,0.18);
+      color: var(--orange);
+      font-weight: 900;
+      font-size: 1.2rem;
+    }
+    .feature-item h4 { margin-bottom: 6px; font-size: 1.08rem; }
+    .feature-item p { margin: 0; color: var(--soft); }
+
+    .manifesto {
+      padding: 28px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at top right, rgba(255,106,0,0.16), transparent 26%),
+        linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      min-height: 100%;
+    }
+    .manifesto-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+    .manifesto-card {
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+    .manifesto-card::after {
+      content: "";
+      position: absolute;
+      right: -20px;
+      bottom: -20px;
+      width: 90px;
+      height: 90px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255,106,0,0.18), transparent 70%);
+    }
+    .manifesto-card small {
+      display: block;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .manifesto-card h4 { margin-bottom: 8px; font-size: 1.08rem; }
+    .manifesto-card p { color: var(--soft); font-size: 0.94rem; }
+
+    .lineup-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 26px;
+    }
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+    .filter-btn {
+      padding: 11px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.03);
+      color: var(--white);
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: rgba(255,106,0,0.12);
+      border-color: rgba(255,106,0,0.35);
+      color: var(--orange);
+    }
+
+    .lineup-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+    .featured-player {
+      position: relative;
+      min-height: 620px;
+      border-radius: 32px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+    .featured-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to top, rgba(8,8,12,0.96), rgba(8,8,12,0.14) 54%),
+        url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      filter: saturate(0.92);
+    }
+    .featured-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 34px;
+    }
+    .featured-content small {
+      display: block;
+      color: #ffd3bc;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      margin-bottom: 8px;
+    }
+    .featured-content h3 {
+      font-family: "Orbitron", sans-serif;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 0.94;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      max-width: 460px;
+    }
+    .featured-content p {
+      color: var(--soft);
+      max-width: 500px;
+      margin-bottom: 20px;
+    }
+    .featured-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      max-width: 620px;
+    }
+    .featured-metrics div {
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .featured-metrics strong {
+      display: block;
+      color: var(--orange);
+      margin-bottom: 4px;
+      font-size: 1.08rem;
+    }
+    .featured-metrics span { color: var(--soft); font-size: 0.83rem; }
+
+    .roster-list {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+    .roster-card {
+      display: grid;
+      grid-template-columns: 88px 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 16px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      transition: 0.25s ease;
+    }
+    .roster-card:hover {
+      transform: translateX(4px);
+      border-color: rgba(255,106,0,0.32);
+      background: rgba(255,255,255,0.045);
+    }
+    .roster-photo {
+      width: 88px;
+      height: 88px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(255,140,50,0.18), rgba(255,106,0,0.06));
+      border: 1px solid rgba(255,255,255,0.08);
+      background-size: cover;
+      background-position: center;
+    }
+    .roster-info small {
+      display: block;
+      color: var(--orange);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .roster-info h4 { font-size: 1.08rem; margin-bottom: 4px; }
+    .roster-info p { color: var(--soft); font-size: 0.92rem; }
+    .roster-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .link-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: var(--soft);
+      font-size: 0.8rem;
+      font-weight: 800;
+      transition: 0.22s ease;
+      cursor: pointer;
+    }
+    .link-pill:hover {
+      color: var(--orange);
+      border-color: rgba(255,106,0,0.35);
+      background: rgba(255,106,0,0.08);
+      transform: translateY(-1px);
+    }
+
+    .results-layout {
+      display: grid;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .highlight-panel {
+      padding: 28px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at top right, rgba(255,106,0,0.18), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      min-height: 100%;
+    }
+    .highlight-panel h3 {
+      font-family: "Orbitron", sans-serif;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .highlight-panel > p {
+      color: var(--soft);
+      margin-bottom: 20px;
+    }
+    .highlight-list { display: grid; gap: 14px; }
+    .highlight-item {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .highlight-item strong {
+      display: block;
+      color: var(--orange);
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+    .highlight-item span { color: var(--soft); font-size: 0.9rem; }
+
+    .timeline-wrap {
+      display: grid;
+      gap: 16px;
+    }
+    .timeline-card {
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      gap: 18px;
+      align-items: center;
+    }
+    .timeline-date {
+      font-family: "Orbitron", sans-serif;
+      font-size: 0.95rem;
+      color: #ffd7c0;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    .timeline-content h4 { font-size: 1.06rem; margin-bottom: 6px; }
+    .timeline-content p { color: var(--soft); font-size: 0.93rem; }
+    .timeline-badge {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,106,0,0.12);
+      color: var(--orange);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .sponsor-hero {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .sponsor-intro {
+      padding: 28px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at top right, rgba(255,106,0,0.16), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .sponsor-intro p { color: var(--soft); margin-bottom: 18px; }
+    .sponsor-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .sponsor-metrics div {
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .sponsor-metrics strong {
+      display: block;
+      color: var(--orange);
+      margin-bottom: 4px;
+      font-size: 1.1rem;
+    }
+    .sponsor-metrics span { color: var(--soft); font-size: 0.84rem; }
+    .logo-wall {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .logo-box {
+      min-height: 120px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      font-family: "Orbitron", sans-serif;
+      letter-spacing: 1px;
+      text-align: center;
+      padding: 18px;
+    }
+    .benefits-grid {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .benefit {
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .benefit strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      color: var(--orange);
+    }
+    .benefit p { color: var(--soft); font-size: 0.92rem; }
+
+    .community-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .community-card {
+      padding: 28px 24px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      position: relative;
+      overflow: hidden;
+    }
+    .community-card::after {
+      content: "";
+      position: absolute;
+      right: -24px;
+      bottom: -24px;
+      width: 96px;
+      height: 96px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255,106,0,0.18), transparent 70%);
+    }
+    .community-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,106,0,0.12);
+      border: 1px solid rgba(255,106,0,0.18);
+      color: var(--orange);
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+    .community-card h3 { margin-bottom: 8px; font-size: 1.08rem; }
+    .community-card p { color: var(--soft); font-size: 0.93rem; margin-bottom: 18px; }
+
+    .community-agenda {
+      margin-top: 24px;
+      padding: 28px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .agenda-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .agenda-item {
+      padding: 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .agenda-item strong { display: block; color: var(--orange); margin-bottom: 6px; }
+    .agenda-item span { color: var(--soft); font-size: 0.9rem; }
+
+    .recruit-layout,
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .text-panel {
+      padding: 28px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .requirements { display: grid; gap: 14px; margin-top: 20px; }
+    .requirement {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .requirement:last-child { border-bottom: none; }
+    .requirement-dot {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,106,0,0.12);
+      border: 1px solid rgba(255,106,0,0.18);
+      color: var(--orange);
+      font-weight: 900;
+    }
+    .requirement h4 { margin-bottom: 4px; font-size: 1rem; }
+    .requirement p { color: var(--soft); font-size: 0.93rem; }
+
+    form { display: grid; gap: 14px; }
+    .form-panel {
+      padding: 28px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at top right, rgba(255,106,0,0.14), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .field { display: grid; gap: 8px; }
+    .field label { font-size: 0.9rem; font-weight: 700; color: #f0f0f4; }
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      color: var(--white);
+      padding: 14px;
+      border-radius: 14px;
+      outline: none;
+      transition: 0.2s ease;
+    }
+    .field textarea { min-height: 130px; resize: vertical; }
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: rgba(255,106,0,0.5);
+      box-shadow: 0 0 0 4px rgba(255,106,0,0.08);
+    }
+
+    .contact-cards { display: grid; gap: 14px; margin-top: 20px; }
+    .contact-item {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 14px;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .contact-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,106,0,0.12);
+      border: 1px solid rgba(255,106,0,0.18);
+      color: var(--orange);
+      font-weight: 900;
+    }
+    .contact-item h4 { margin-bottom: 4px; }
+    .contact-item p,
+    .contact-item a { color: var(--soft); font-size: 0.94rem; }
+
+    .cta-section { padding-top: 0; }
+    .cta-panel {
+      padding: 40px;
+      border-radius: 34px;
+      display: grid;
+      grid-template-columns: 1.1fr auto;
+      gap: 20px;
+      align-items: center;
+      background:
+        radial-gradient(circle at top right, rgba(255,106,0,0.22), transparent 24%),
+        radial-gradient(circle at left center, rgba(255,255,255,0.05), transparent 26%),
+        linear-gradient(160deg, #18181f 0%, #101015 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+    .cta-panel h3 {
+      font-family: "Orbitron", sans-serif;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 0.96;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .cta-panel p { color: var(--soft); max-width: 650px; }
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    footer {
+      padding: 32px 0 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: center;
+    }
+    .footer-copy p { color: var(--soft); margin-top: 10px; max-width: 560px; }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 18px;
+      justify-content: flex-end;
+      color: var(--soft);
+      font-weight: 600;
+    }
+    .footer-links a:hover { color: var(--orange); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1120px) {
+      .hero-grid,
+      .about-grid,
+      .lineup-grid,
+      .results-layout,
+      .sponsor-hero,
+      .recruit-layout,
+      .contact-layout,
+      .cta-panel,
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-actions,
+      .footer-links { justify-content: flex-start; }
+      .featured-metrics,
+      .benefits-grid,
+      .stats-grid,
+      .agenda-grid,
+      .community-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links,
+      .nav-actions .btn { display: none; }
+      .menu-toggle { display: inline-grid; place-items: center; }
+      .hero-stage-inner { grid-template-columns: 1fr; }
+      .hero-stage { min-height: auto; }
+      .lineup-header { grid-template-columns: 1fr; }
+      .filters { justify-content: flex-start; }
+      .timeline-card,
+      .roster-card { grid-template-columns: 1fr; }
+      .roster-links { justify-content: flex-start; }
+      .form-grid,
+      .manifesto-grid,
+      .logo-wall,
+      .sponsor-metrics { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      .section { padding: 86px 0; }
+      .hero { padding-top: 56px; }
+      .hero-copy h1 { font-size: 2.7rem; }
+      .hero-strip,
+      .featured-metrics,
+      .stats-grid,
+      .benefits-grid,
+      .community-grid,
+      .agenda-grid { grid-template-columns: 1fr; }
+      .display-word { display: none; }
+      .hero-stage,
+      .featured-player,
+      .form-panel,
+      .text-panel,
+      .sponsor-intro,
+      .cta-panel { border-radius: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container navbar">
+      <a href="#inicio" class="brand">
+        <div class="brand-logo">HKS</div>
+        <div class="brand-text">
+          <strong>HKS ESPORTS</strong>
+          <span>Competitivo • Geek • Profissional</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#lineup">Lineup</a>
+        <a href="#campeonatos">Campeonatos</a>
+        <a href="#patrocinadores">Patrocinadores</a>
+        <a href="#comunidade">Comunidade</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#patrocinadores" class="btn btn-primary">Seja Patrocinador</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <nav>
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#lineup">Lineup</a>
+        <a href="#campeonatos">Campeonatos</a>
+        <a href="#patrocinadores">Patrocinadores</a>
+        <a href="#comunidade">Comunidade</a>
+        <a href="#recrutamento">Seja Player</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a href="#patrocinadores" class="btn btn-primary">Quero Patrocinar</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">Mundo geek com posicionamento profissional</div>
+          <h1>HKS <span>Esports</span><br>presença forte<br>no competitivo</h1>
+          <p>
+            Uma experiência institucional premium para transformar a HKS em uma organização com identidade real, estética marcante,
+            autoridade visual e estrutura pronta para jogadores, fãs e patrocinadores.
+          </p>
+          <div class="hero-actions">
+            <a href="#lineup" class="btn btn-primary">Ver Lineup</a>
+            <a href="#patrocinadores" class="btn btn-secondary">Mídia Kit</a>
+          </div>
+          <div class="hero-strip">
+            <div class="strip-item">
+              <strong>Marca mais humana</strong>
+              <span>Menos blocos repetidos, mais presença visual</span>
+            </div>
+            <div class="strip-item">
+              <strong>Fotos reais</strong>
+              <span>Estrutura pronta para imagens da organização</span>
+            </div>
+            <div class="strip-item">
+              <strong>Conversão</strong>
+              <span>Contato, recrutamento e patrocínio com foco</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-stage reveal">
+          <div class="hero-stage-inner">
+            <div class="hero-side">
+              <div class="chip">⚔️ Identidade competitiva</div>
+              <div class="score-panel">
+                <h3>Destaques da organização</h3>
+                <div class="score-list">
+                  <div class="score-row"><span>Campeonatos disputados</span><strong>27+</strong></div>
+                  <div class="score-row"><span>Pódios recentes</span><strong>11</strong></div>
+                  <div class="score-row"><span>Seguidores e alcance</span><strong>60K</strong></div>
+                  <div class="score-row"><span>Parceiros estratégicos</span><strong>4</strong></div>
+                </div>
+              </div>
+              <div class="chip">🧡 Pronto para colocar a logo e as fotos reais</div>
+            </div>
+
+            <div class="hero-poster">
+              <div class="poster-image"></div>
+              <div class="poster-overlay">
+                <small>Hero com imagem real do time</small>
+                <h3>Substitua essa montagem pelas fotos oficiais da HKS</h3>
+                <p>Aqui é o lugar ideal para uma foto ou arte principal dos jogadores. Isso muda completamente a sensação de template.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container stats-band reveal">
+        <div class="stats-grid">
+          <div class="stat-block"><strong>27+</strong><span>Campeonatos disputados</span></div>
+          <div class="stat-block"><strong>11</strong><span>Pódios conquistados</span></div>
+          <div class="stat-block"><strong>9</strong><span>Jogadores e staff</span></div>
+          <div class="stat-block"><strong>60K</strong><span>Impacto na comunidade</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="display-word">about</div>
+      <div class="container about-grid">
+        <div class="about-copy reveal">
+          <div class="section-header">
+            <div class="eyebrow">Quem é a HKS</div>
+            <h2 class="section-title">Uma organização pensada para competir, crescer e se posicionar</h2>
+            <p class="section-subtitle">
+              A HKS Esports precisa parecer menos “site montado por IA” e mais uma marca com personalidade. Por isso, a estrutura agora mistura manifesto,
+              storytelling e áreas institucionais com mais ritmo visual.
+            </p>
+          </div>
+
+          <p>
+            Este site foi desenhado para apresentar a organização com mais força estética, mais autoridade e mais intenção comercial. Ele equilibra o lado competitivo,
+            a cultura geek e a parte institucional necessária para abrir portas para novos players, fãs e patrocinadores.
+          </p>
+
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-icon">⚡</div>
+              <div>
+                <h4>Visual mais editorial</h4>
+                <p>Menos blocos iguais, mais hierarquia, áreas de respiro e composições com destaque.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🎯</div>
+              <div>
+                <h4>Feito para converter</h4>
+                <p>O site guia o visitante para conhecer o time, entrar na comunidade e gerar contato real.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">🛡️</div>
+              <div>
+                <h4>Pronto para personalização real</h4>
+                <p>Fotos, redes, links, dados competitivos e formulários podem ser trocados sem quebrar o layout.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="manifesto reveal">
+          <div class="eyebrow">Manifesto da marca</div>
+          <h3 style="font-family: Orbitron, sans-serif; font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1; text-transform: uppercase; margin-bottom: 10px;">Geek, intensa e profissional</h3>
+          <p style="color: var(--soft);">A HKS não é só um time. É uma identidade competitiva que precisa aparecer com força, consistência visual e presença digital séria.</p>
+
+          <div class="manifesto-grid">
+            <article class="manifesto-card">
+              <small>Missão</small>
+              <h4>Representar com personalidade</h4>
+              <p>Competir e construir uma presença marcante dentro do cenário gamer.</p>
+            </article>
+            <article class="manifesto-card">
+              <small>Visão</small>
+              <h4>Crescer como organização</h4>
+              <p>Expandir presença competitiva, comercial e digital com consistência.</p>
+            </article>
+            <article class="manifesto-card">
+              <small>Valores</small>
+              <h4>Disciplina e evolução</h4>
+              <p>Compromisso, constância e foco em performance coletiva.</p>
+            </article>
+            <article class="manifesto-card">
+              <small>Tom da marca</small>
+              <h4>Moderna e divertida</h4>
+              <p>Forte no universo geek sem perder estética premium.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lineup">
+      <div class="display-word">lineup</div>
+      <div class="container">
+        <div class="lineup-header reveal">
+          <div>
+            <div class="eyebrow">Jogadores e staff</div>
+            <h2 class="section-title">Agora com estrutura para fotos reais e menos cara de template</h2>
+            <p class="section-subtitle">Em vez de uma grade cheia de cards iguais, o lineup ganhou um destaque principal e uma lista lateral mais elegante.</p>
+          </div>
+          <div class="filters" id="filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="titular">Titulares</button>
+            <button class="filter-btn" data-filter="reserva">Reservas</button>
+            <button class="filter-btn" data-filter="staff">Staff</button>
+          </div>
+        </div>
+
+        <div class="lineup-grid">
+          <article class="featured-player reveal" data-category="titular">
+            <div class="featured-bg"></div>
+            <div class="featured-content">
+              <small>Destaque principal • foto real do capitão</small>
+              <h3>HKS Nexus</h3>
+              <p>Capitão da HKS e referência estratégica do elenco. Esta área foi feita para receber uma foto real impactante e dar mais personalidade ao site.</p>
+              <div class="featured-metrics">
+                <div><strong>19</strong><span>Mapas vencidos</span></div>
+                <div><strong>84%</strong><span>Calls certas</span></div>
+                <div><strong>11</strong><span>MVPs</span></div>
+                <div><strong>4</strong><span>Títulos</span></div>
+              </div>
+            </div>
+          </article>
+
+          <div class="roster-list" id="playersGrid">
+            <article class="roster-card reveal" data-category="titular">
+              <div class="roster-photo" style="background-image:url('https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=500&q=80');"></div>
+              <div class="roster-info">
+                <small>Titular • Rush</small>
+                <h4>HKS Rex</h4>
+                <p>Entrada agressiva e criação de pressão no early game.</p>
+              </div>
+              <div class="roster-links"><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="link-pill">Instagram</a><a href="https://twitch.tv" target="_blank" rel="noopener noreferrer" class="link-pill">Twitch</a></div>
+            </article>
+
+            <article class="roster-card reveal" data-category="titular">
+              <div class="roster-photo" style="background-image:url('https://images.unsplash.com/photo-1511882150382-421056c89033?auto=format&fit=crop&w=500&q=80');"></div>
+              <div class="roster-info">
+                <small>Titular • Sniper</small>
+                <h4>HKS Veno</h4>
+                <p>Precisão, leitura de mapa e decisão em momentos de pressão.</p>
+              </div>
+              <div class="roster-links"><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="link-pill">Instagram</a><a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="link-pill">YouTube</a></div>
+            </article>
+
+            <article class="roster-card reveal" data-category="titular">
+              <div class="roster-photo" style="background-image:url('https://images.unsplash.com/photo-1560253023-3ec5d502959f?auto=format&fit=crop&w=500&q=80');"></div>
+              <div class="roster-info">
+                <small>Titular • Suporte</small>
+                <h4>HKS Kyro</h4>
+                <p>Controle de utilitários, proteção de equipe e estabilidade nas rotações.</p>
+              </div>
+              <div class="roster-links"><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="link-pill">Instagram</a><a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="link-pill">Discord</a></div>
+            </article>
+
+            <article class="roster-card reveal" data-category="titular">
+              <div class="roster-photo" style="background-image:url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=80');"></div>
+              <div class="roster-info">
+                <small>Titular • Flex</small>
+                <h4>HKS Zex</h4>
+                <p>Versatilidade entre funções e adaptação tática em diferentes formatos.</p>
+              </div>
+              <div class="roster-links"><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="link-pill">Instagram</a><a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="link-pill">TikTok</a></div>
+            </article>
+
+            <article class="roster-card reveal" data-category="reserva">
+              <div class="roster-photo" style="background-image:url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80');"></div>
+              <div class="roster-info">
+                <small>Reserva</small>
+                <h4>HKS Nott</h4>
+                <p>Peça de rotação com boa leitura e reposição competitiva.</p>
+              </div>
+              <div class="roster-links"><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="link-pill">Instagram</a></div>
+            </article>
+
+            <article class="roster-card reveal" data-category="staff">
+              <div class="roster-photo" style="background-image:url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=500&q=80');"></div>
+              <div class="roster-info">
+                <small>Staff • Coach</small>
+                <h4>Coach Titan</h4>
+                <p>Responsável por estratégia, análise e preparação da line.</p>
+              </div>
+              <div class="roster-links"><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="link-pill">Instagram</a><a href="https://x.com" target="_blank" rel="noopener noreferrer" class="link-pill">X</a></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="campeonatos">
+      <div class="display-word">results</div>
+      <div class="container results-layout">
+        <div class="highlight-panel reveal">
+          <div class="eyebrow">Desempenho competitivo</div>
+          <h2 class="section-title" style="font-size: clamp(1.8rem, 3vw, 2.8rem); max-width: 460px;">A parte que prova que a HKS compete de verdade</h2>
+          <p>Em vez de uma tabela fria logo de cara, o destaque vem primeiro para contar a história dos resultados mais fortes da organização.</p>
+
+          <div class="highlight-list">
+            <div class="highlight-item"><strong>1º lugar — Copa Reload Invitational</strong><span>Campanha dominante e presença forte na final.</span></div>
+            <div class="highlight-item"><strong>Top 3 — Liga Geek Nordeste</strong><span>Resultado forte em campeonato regional com grande visibilidade.</span></div>
+            <div class="highlight-item"><strong>2º lugar — Night Clash Series</strong><span>Consistência tática e ótima taxa de eliminações.</span></div>
+          </div>
+        </div>
+
+        <div class="timeline-wrap">
+          <article class="timeline-card reveal">
+            <div class="timeline-date">Março<br>2026</div>
+            <div class="timeline-content">
+              <h4>Copa Reload Invitational</h4>
+              <p>A HKS dominou a fase final com controle tático, boa leitura de mapa e decisão precisa.</p>
+            </div>
+            <div class="timeline-badge">1º Lugar</div>
+          </article>
+
+          <article class="timeline-card reveal">
+            <div class="timeline-date">Fevereiro<br>2026</div>
+            <div class="timeline-content">
+              <h4>Liga Geek Nordeste</h4>
+              <p>Campanha regional que consolidou a HKS como nome forte dentro do público competitivo geek.</p>
+            </div>
+            <div class="timeline-badge">Top 3</div>
+          </article>
+
+          <article class="timeline-card reveal">
+            <div class="timeline-date">Janeiro<br>2026</div>
+            <div class="timeline-content">
+              <h4>Night Clash Series</h4>
+              <p>Sequência de boas partidas com pressão ofensiva, adaptação e bom desempenho nos mapas decisivos.</p>
+            </div>
+            <div class="timeline-badge">2º Lugar</div>
+          </article>
+
+          <article class="timeline-card reveal">
+            <div class="timeline-date">Dezembro<br>2025</div>
+            <div class="timeline-content">
+              <h4>Open Arena Cup</h4>
+              <p>Participação importante na construção da consistência competitiva da equipe.</p>
+            </div>
+            <div class="timeline-badge">Top 8</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="patrocinadores">
+      <div class="display-word">partners</div>
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="eyebrow">Página comercial</div>
+          <h2 class="section-title">Menos grade genérica, mais cara de mídia kit</h2>
+          <p class="section-subtitle">A área de patrocinadores agora parece uma apresentação comercial e não só uma seção com logos jogadas.</p>
+        </div>
+
+        <div class="sponsor-hero reveal">
+          <div class="sponsor-intro">
+            <h3 style="font-family: Orbitron, sans-serif; font-size: 1.8rem; line-height: 0.98; margin-bottom: 10px; text-transform: uppercase;">A HKS conecta marcas ao público gamer</h3>
+            <p>Use essa área para colocar texto comercial real, proposta de valor, links de apresentação e até um PDF de mídia kit no futuro.</p>
+            <div class="sponsor-metrics">
+              <div><strong>60K</strong><span>Alcance total</span></div>
+              <div><strong>8.2%</strong><span>Engajamento médio</span></div>
+              <div><strong>18–30</strong><span>Faixa etária principal</span></div>
+              <div><strong>Geek</strong><span>Público predominante</span></div>
+            </div>
+          </div>
+
+          <div class="logo-wall">
+            <div class="logo-box">NEXUS ENERGY</div>
+            <div class="logo-box">PIXEL GEAR</div>
+            <div class="logo-box">ARENA HUB</div>
+            <div class="logo-box">GEEK BOOST</div>
+          </div>
+        </div>
+
+        <div class="benefits-grid reveal">
+          <article class="benefit"><strong>Exposição visual</strong><p>Logo no site, presença em peças visuais, conteúdo e branding da organização.</p></article>
+          <article class="benefit"><strong>Público alinhado</strong><p>Audiência jovem, digital, gamer e altamente conectada com cultura geek.</p></article>
+          <article class="benefit"><strong>Posicionamento premium</strong><p>Ambiente mais sério para receber proposta comercial e institucional.</p></article>
+          <article class="benefit"><strong>Ativações futuras</strong><p>Espaço para campanhas, promoções, conteúdos patrocinados e experiências conjuntas.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="comunidade">
+      <div class="display-word">social</div>
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="eyebrow">Ecossistema HKS</div>
+          <h2 class="section-title">A comunidade não fica mais escondida em botões pequenos</h2>
+          <p class="section-subtitle">Cada canal ganhou protagonismo para ajudar na conversão de visitantes em seguidores e membros ativos.</p>
+        </div>
+
+        <div class="community-grid">
+          <article class="community-card reveal"><div class="community-icon">IG</div><h3>Instagram</h3><p>Bastidores, anúncios, highlights, conquistas e rotina visual da organização.</p><a href="#contato" class="btn btn-secondary">Acessar perfil</a></article>
+          <article class="community-card reveal"><div class="community-icon">DC</div><h3>Discord</h3><p>Canal principal para comunidade, recrutamento, interação e ativações exclusivas.</p><a href="#contato" class="btn btn-secondary">Entrar no servidor</a></article>
+          <article class="community-card reveal"><div class="community-icon">TW</div><h3>Twitch</h3><p>Lives, scrims, gameplay e momentos ao vivo com a line e a comunidade.</p><a href="#contato" class="btn btn-secondary">Ver transmissões</a></article>
+          <article class="community-card reveal"><div class="community-icon">YT</div><h3>YouTube</h3><p>Vídeos longos, trailers, melhores momentos e conteúdo institucional.</p><a href="#contato" class="btn btn-secondary">Assistir agora</a></article>
+        </div>
+
+        <div class="community-agenda reveal">
+          <h3 style="font-family: Orbitron, sans-serif; font-size: 1.3rem; margin-bottom: 8px; text-transform: uppercase;">Agenda da semana</h3>
+          <p style="color: var(--soft);">Essa parte ajuda a dar vida ao site. Troque por treinos reais, lives, campeonatos ou ativações da HKS.</p>
+          <div class="agenda-grid">
+            <div class="agenda-item"><strong>Segunda</strong><span>Treino tático • 20h</span></div>
+            <div class="agenda-item"><strong>Quarta</strong><span>Scrim aberta • 21h</span></div>
+            <div class="agenda-item"><strong>Sexta</strong><span>Live da line • 20h30</span></div>
+            <div class="agenda-item"><strong>Sábado</strong><span>Campeonato / evento especial</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="recrutamento">
+      <div class="display-word">join</div>
+      <div class="container recruit-layout">
+        <div class="text-panel reveal">
+          <div class="eyebrow">Recrutamento</div>
+          <h2 class="section-title" style="font-size: clamp(1.8rem, 3vw, 2.8rem);">Uma área feita para receber talento de verdade</h2>
+          <p style="color: var(--soft);">O texto ao lado prepara o candidato e ajuda a qualificar quem envia o formulário.</p>
+
+          <div class="requirements">
+            <div class="requirement"><div class="requirement-dot">1</div><div><h4>Compromisso</h4><p>Responsabilidade, constância e vontade de evoluir.</p></div></div>
+            <div class="requirement"><div class="requirement-dot">2</div><div><h4>Boa comunicação</h4><p>Clareza nas calls e postura de equipe.</p></div></div>
+            <div class="requirement"><div class="requirement-dot">3</div><div><h4>Mentalidade competitiva</h4><p>Seriedade em treino, campeonato e rotina.</p></div></div>
+            <div class="requirement"><div class="requirement-dot">4</div><div><h4>Disponibilidade</h4><p>Presença ativa e compatibilidade com a agenda do time.</p></div></div>
+          </div>
+        </div>
+
+        <div class="form-panel reveal">
+          <div class="eyebrow">Formulário real</div>
+          <h3 style="font-family: Orbitron, sans-serif; font-size: 1.4rem; text-transform: uppercase; line-height: 1; margin-bottom: 8px;">Envio pronto para FormSubmit</h3>
+          <p style="color: var(--soft); margin-bottom: 18px;">Troque o e-mail abaixo pelo seu e o formulário já enviará de verdade sem backend.</p>
+
+          <form id="playerForm" action="https://formsubmit.co/SEUEMAIL@EXEMPLO.COM" method="POST">
+            <input type="hidden" name="_subject" value="Nova candidatura HKS Esports">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <div class="form-grid">
+              <div class="field"><label for="player-name">Nome</label><input id="player-name" name="Nome" type="text" placeholder="Seu nome" required></div>
+              <div class="field"><label for="player-nick">Nick</label><input id="player-nick" name="Nick" type="text" placeholder="Seu nick no game" required></div>
+              <div class="field"><label for="player-age">Idade</label><input id="player-age" name="Idade" type="number" placeholder="Sua idade" required></div>
+              <div class="field"><label for="player-role">Função</label><select id="player-role" name="Função" required><option value="">Selecione</option><option>Rush</option><option>Sniper</option><option>Suporte</option><option>IGL</option><option>Flex</option></select></div>
+              <div class="field"><label for="player-game">Jogo principal</label><input id="player-game" name="Jogo principal" type="text" placeholder="Ex: Free Fire" required></div>
+              <div class="field"><label for="player-rank">Rank / nível</label><input id="player-rank" name="Rank" type="text" placeholder="Seu rank atual" required></div>
+            </div>
+            <div class="field"><label for="player-exp">Experiência</label><textarea id="player-exp" name="Experiência" placeholder="Fale sobre campeonatos, times anteriores e seu estilo de jogo"></textarea></div>
+            <button type="submit" class="btn btn-primary btn-full">Enviar candidatura</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contato">
+      <div class="display-word">contact</div>
+      <div class="container contact-layout">
+        <div class="text-panel reveal">
+          <div class="eyebrow">Contato oficial</div>
+          <h2 class="section-title" style="font-size: clamp(1.8rem, 3vw, 2.8rem);">Uma página final de conversão com aparência mais profissional</h2>
+          <p style="color: var(--soft);">Aqui o visitante encontra os meios principais de contato e um formulário pronto para envio real.</p>
+
+          <div class="contact-cards">
+            <div class="contact-item"><div class="contact-icon">✉</div><div><h4>E-mail comercial</h4><a href="mailto:contato@hksesports.com">contato@hksesports.com</a></div></div>
+            <div class="contact-item"><div class="contact-icon">WA</div><div><h4>WhatsApp</h4><a href="https://wa.me/5581999999999" target="_blank" rel="noopener noreferrer">(81) 99999-9999</a></div></div>
+            <div class="contact-item"><div class="contact-icon">⌚</div><div><h4>Horário de resposta</h4><p>Segunda a sexta • 09h às 18h</p></div></div>
+          </div>
+        </div>
+
+        <div class="form-panel reveal">
+          <div class="eyebrow">Mensagem direta</div>
+          <h3 style="font-family: Orbitron, sans-serif; font-size: 1.4rem; text-transform: uppercase; line-height: 1; margin-bottom: 8px;">Formulário de contato real</h3>
+          <p style="color: var(--soft); margin-bottom: 18px;">Também configurado com FormSubmit. Basta trocar o e-mail do action.</p>
+
+          <form id="contactForm" action="https://formsubmit.co/SEUEMAIL@EXEMPLO.COM" method="POST">
+            <input type="hidden" name="_subject" value="Novo contato HKS Esports">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <div class="form-grid">
+              <div class="field"><label for="contact-name">Nome</label><input id="contact-name" name="Nome" type="text" placeholder="Seu nome" required></div>
+              <div class="field"><label for="contact-email">E-mail</label><input id="contact-email" name="Email" type="email" placeholder="seuemail@exemplo.com" required></div>
+            </div>
+            <div class="form-grid">
+              <div class="field"><label for="contact-subject">Assunto</label><input id="contact-subject" name="Assunto" type="text" placeholder="Ex: Proposta de patrocínio" required></div>
+              <div class="field"><label for="contact-whatsapp">WhatsApp</label><input id="contact-whatsapp" name="WhatsApp" type="text" placeholder="(81) 99999-9999"></div>
+            </div>
+            <div class="field"><label for="contact-message">Mensagem</label><textarea id="contact-message" name="Mensagem" placeholder="Escreva sua mensagem"></textarea></div>
+            <button type="submit" class="btn btn-primary btn-full">Enviar mensagem</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-panel reveal">
+          <div>
+            <h3>Agora sim com base para um site mais humano e premium</h3>
+            <p>O próximo salto de qualidade vem quando você trocar as imagens provisórias pelas fotos reais dos jogadores, a logo oficial da HKS e os links verdadeiros das redes.</p>
+          </div>
+          <div class="cta-actions">
+            <a href="#lineup" class="btn btn-primary">Atualizar lineup</a>
+            <a href="#contato" class="btn btn-secondary">Configurar contato</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-copy">
+        <div class="brand">
+          <div class="brand-logo">HKS</div>
+          <div class="brand-text">
+            <strong>HKS ESPORTS</strong>
+            <span>Institucional gamer premium</span>
+          </div>
+        </div>
+        <p>Layout redesenhado para parecer menos automático e mais marca real. Agora o ideal é substituir as imagens provisórias, dados fictícios e e-mails placeholder.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#lineup">Lineup</a>
+        <a href="#campeonatos">Campeonatos</a>
+        <a href="#patrocinadores">Patrocinadores</a>
+        <a href="#comunidade">Comunidade</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const body = document.body;
+
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+        body.classList.toggle('menu-open');
+        menuToggle.textContent = mobileMenu.classList.contains('open') ? '✕' : '☰';
+      });
+    }
+
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        body.classList.remove('menu-open');
+        if (menuToggle) menuToggle.textContent = '☰';
+      });
+    });
+
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('main section[id]');
+
+    const activateNav = () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 140;
+        if (window.scrollY >= sectionTop) current = section.getAttribute('id');
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', activateNav);
+    activateNav();
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const playerCards = document.querySelectorAll('#playersGrid .roster-card');
+    const featuredPlayer = document.querySelector('.featured-player');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        const filter = button.dataset.filter;
+
+        playerCards.forEach(card => {
+          const category = card.dataset.category;
+          card.style.display = (filter === 'all' || filter === category) ? 'grid' : 'none';
+        });
+
+        if (featuredPlayer) {
+          const featuredCategory = featuredPlayer.dataset.category;
+          featuredPlayer.style.display = (filter === 'all' || filter === featuredCategory) ? 'block' : 'none';
+        }
+      });
+    });
+
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  </script>
+</body>
+</html>
